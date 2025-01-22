@@ -12,11 +12,28 @@ Este repositório contém exercícios, códigos de exemplo, documentação e rec
 - **IDE**: [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html)
 - **Gravador**: [STM32CubeProg](https://www.st.com/en/development-tools/stm32cubeprog.html)
 
+- **HALs disponibilizado pela ST**: [Resultados encontrados](https://www.st.com/content/st_com/en/search.html#q=hardware%20abstraction%20layer%20-t=resources-page=1)
+
 ---
 
 ## Módulos
 
 ### 1. [Microcontroladores e Processadores ARM](#1-microcontroladores-e-processadores-arm)
+
+A família do Cortex tem três categorias principais:
+1. ARM Cortex-A (p/ processadores)
+2. ARM Cortex-R (p/ aplicações em tempo real)
+3. ARM Cortex-M (p/ microcontroladores)
+
+![Famílias Cortex](imgs/familias_cortex.png)
+
+- [8-bit vs. 32-bit MCU: Choosing the Right Microcontroller for Your PCB Design](https://resources.altium.com/p/8-bit-vs-32-bit-mcu-choosing-right-microcontroller-your-pcb-design)
+
+Alguns conceitos:
+- **Firmware** -  um tipo de software que é armazenado em um dispositivo eletrônico e que controla o funcionamento deste dispositivo.
+- **Linguagens de programação para MCU's** - C, C++, Assembly, Python, Java Basic e Pascal.
+- **Bare Metal** - programação de um sistema operacional instalado diretamente no hardware, sem camadas de software de gestão e hipervisores.
+- **HAL (Hardware Adstraction Layer) e LL (Low-Layer) APIs** - O HAL é uma camada de software que permite a comunicação entre o software e o hardware, e o Low-Layer APIs são mais detalhadas e específicas do que as High-Level APIs, permitindo um controle mais granular.
 
 ### 2. [Softwares e Recursos](#2-softwares-e-recursos)
 
