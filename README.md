@@ -9,11 +9,12 @@ Este repositório contém exercícios, códigos de exemplo, documentação e rec
 ## Documentação e Ferramentas
 
 - **Fabricante**: [STMicroelectronics](https://www.st.com/content/st_com/en.html)
-- **IDE**: [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html)
-- **Gravador**: [STM32CubeProg](https://www.st.com/en/development-tools/stm32cubeprog.html)
+- [STM32 MPU wiki](https://wiki.st.com/stm32mpu)
+- [STM32 MCU wiki](https://wiki.st.com/stm32mcu)
+- [HALs disponibilizado pela ST](https://www.st.com/content/st_com/en/search.html#q=hardware%20abstraction%20layer%20-t=resources-page=1)
 
-- **HALs disponibilizado pela ST**: [Resultados encontrados](https://www.st.com/content/st_com/en/search.html#q=hardware%20abstraction%20layer%20-t=resources-page=1)
-
+- [STM32Cube github](https://github.com/STMicroelectronics)
+- [STM32CubeIDE resource portal on wiki](https://wiki.st.com/stm32mcu/index.php?title=STM32CubeIDE:Introduction_to_STM32CubeIDE&sfr=stm32mcu)
 ---
 
 ## Módulos
@@ -36,6 +37,10 @@ Alguns conceitos:
 - **HAL (Hardware Adstraction Layer) e LL (Low-Layer) APIs** - O HAL é uma camada de software que permite a comunicação entre o software e o hardware, e o Low-Layer APIs são mais detalhadas e específicas do que as High-Level APIs, permitindo um controle mais granular.
 
 ### 2. [Softwares e Recursos](#2-softwares-e-recursos)
+- **IDE**: [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html)
+- **Gravador**: [STM32CubeProg](https://www.st.com/en/development-tools/stm32cubeprog.html)
+- **Núcleo Board**: [NUCLEO-L476RG](https://www.st.com/en/evaluation-tools/nucleo-l476rg.html), [UM1724: STM32 Nucleo-64 boards (MB1136)](https://www.st.com/content/ccc/resource/technical/document/user_manual/98/2e/fa/4b/e0/82/43/b7/DM00105823.pdf/files/DM00105823.pdf/jcr:content/translations/en.DM00105823.pdf). 
+- **Upgrade St-Link**: ![U](imgs/upgrade_stlink.png)
 
 ### 3. [Revisão de Linguagem C Básica](#3-revisão-de-linguagem-c-básica)
 
