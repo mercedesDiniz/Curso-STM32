@@ -44,6 +44,16 @@ Alguns conceitos:
 
 ### 3. [Revisão de Linguagem C Básica](#3-revisão-de-linguagem-c-básica)
 
+- Pratique em [Dev-C++](https://sourceforge.net/projects/orwelldevcpp/).
+
+- [Tabelas de valores e unidades em C](https://www.each.usp.br/digiampietri/ACH2023/tabelasemc.html)
+
+- [Tabela ASCII](https://www.ibm.com/docs/pt-br/aix/7.3?topic=adapters-ascii-decimal-hexadecimal-octal-binary-conversion-table)
+
+- [Calculadora de Conversão de Bases Numéricas](https://www.calculadoraonline.com.br/conversao-bases)
+
+- [Guia da linguagem C - Embarcados](https://embarcados.com.br/linguagem-c-guia-completo/)  
+
 ### 4. [Ambientes, Projetos e Depurador SWD](#4-ambientes-projetos-e-depurador-swd)
 
 ### 5. [Clocks do STM32](#5-clocks-do-stm32)
