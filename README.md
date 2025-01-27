@@ -39,6 +39,7 @@ Alguns conceitos:
 ### 2. [Softwares e Recursos](#2-softwares-e-recursos)
 - **IDE**: [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html)
 - **Gravador**: [STM32CubeProg](https://www.st.com/en/development-tools/stm32cubeprog.html)
+- **Servidor ST-LINK**: [ST-LINK server](https://www.st.com/en/development-tools/st-link-server.html)
 - **Núcleo Board**: [NUCLEO-L476RG](https://www.st.com/en/evaluation-tools/nucleo-l476rg.html), [UM1724: STM32 Nucleo-64 boards (MB1136)](https://www.st.com/content/ccc/resource/technical/document/user_manual/98/2e/fa/4b/e0/82/43/b7/DM00105823.pdf/files/DM00105823.pdf/jcr:content/translations/en.DM00105823.pdf). 
 - **Upgrade St-Link**: ![U](imgs/upgrade_stlink.png)
 
@@ -56,6 +57,24 @@ Alguns conceitos:
 
 ### 4. [Ambientes, Projetos e Depurador SWD](#4-ambientes-projetos-e-depurador-swd)
 
+- Board Selector: NUCLEO-L476RG
+
+- Compilar: *Project>Build All*
+- Debugger: *Run>Debug As>1 STM32 Cortex-M C/C++ Application*
+
+    Click em *Apply* e *OK* na janela de configuração do debugger.
+    ![alt text](imgs/win_config_debugger.png)
+
+-  Debugger Serial:   
+    ![alt text](imgs/config_debugger_serial.png)
+
+    Em *Run>Debug Configurations*, habilite em *Debugger* o recurso *Serial Wire Viewr (SWV)*.
+    ![alt text](imgs/swv.png)
+
+    Ao entrar do modo *Debugger* vai em *Window>Show View> SWV>SWV Data Trace Timerline Graph*
+
+    Clicke em *Configure trace* e na aba inicializada deixe as seguinte opções:
+    ![alt text](imgs/swv2.png)
 ### 5. [Clocks do STM32](#5-clocks-do-stm32)
 
 ### 6. [Gpio's do STM32](#6-gpios-do-stm32)
