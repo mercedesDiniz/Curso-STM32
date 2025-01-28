@@ -57,7 +57,7 @@ Alguns conceitos:
 
 ### 4. [Ambientes, Projetos e Depurador SWD](#4-ambientes-projetos-e-depurador-swd)
 
-- Board Selector: NUCLEO-L476RG
+- Board Selector: [NUCLEO-L476RG](https://www.st.com/en/evaluation-tools/nucleo-l476rg.html#overview)
 
 - Compilar: *Project>Build All*
 - Debugger: *Run>Debug As>1 STM32 Cortex-M C/C++ Application*
@@ -73,53 +73,62 @@ Alguns conceitos:
 
     Ao entrar do modo *Debugger* vai em *Window>Show View> SWV>SWV Data Trace Timerline Graph*
 
-    Clicke em *Configure trace* e na aba inicializada deixe as seguinte opções:
+    Click em *Configure trace* e na aba inicializada deixe as seguinte opções:
     ![alt text](imgs/swv2.png)
-### 5. [Clocks do STM32](#5-clocks-do-stm32)
 
-### 6. [Gpio's do STM32](#6-gpios-do-stm32)
+### 5. [Gravação, Bootloader e Customização](#5-gravação-bootloader-e-customização)
+- Modelos de ST-Links: [ST-LINK/V2](https://www.st.com/en/development-tools/st-link-v2.html) e [STLINK-V3](https://www.st.com/en/development-tools/stlink-v3set.html)
 
-### 7. [Timers do STM32](#7-timers-do-stm32)
+- Habilitando a geração dos arquivos Bin e Hex ao compilar: 
+    
+    Va em "*Project>Properties>C/C++ Build>Settings*", e deixe marcado as seguinte opções:
+    ![alt text](imgs/config_gerar_bin_hex.png)
+    
+### 6. [Clocks do STM32](#6-clocks-do-stm32)
 
-### 8. [OC, IC e PWM, DeadTime e Frequência Variável](#8-oc-ic-e-pwm-deadtime-e-frequência-variável)
+### 7. [Gpio's do STM32](#7-gpios-do-stm32)
 
-### 9. [ADC (Conversor Analógico Digital)](#9-adc-conversor-analógico-digital)
+### 8. [Timers do STM32](#8-timers-do-stm32)
 
-### 10. [DAC (Conversor Digital Analógico)](#10-dac-conversor-digital-analógico)
+### 9. [OC, IC e PWM, DeadTime e Frequência Variável](#9-oc-ic-e-pwm-deadtime-e-frequência-variável)
 
-### 11. [WDT - Watchdog com STM32](#11-wdt---watchdog-com-stm32)
+### 10. [ADC (Conversor Analógico Digital)](#10-adc-conversor-analógico-digital)
 
-### 12. [Modos de Baixo Consumo (Low Power Modes)](#12-modos-de-baixo-consumo-low-power-modes)
+### 11. [DAC (Conversor Digital Analógico)](#11-dac-conversor-digital-analógico)
 
-### 13. [RTC (Real Time Clock Interno do STM32)](#13-rtc-real-time-clock-interno-do-stm32)
+### 12. [WDT - Watchdog com STM32](#12-wdt---watchdog-com-stm32)
 
-### 14. [Comunicação Serial - USART](#14-comunicação-serial---usart)
+### 13. [Modos de Baixo Consumo (Low Power Modes)](#13-modos-de-baixo-consumo-low-power-modes)
 
-### 15. [Comunicação I2C](#15-comunicação-i2c)
+### 14. [RTC (Real Time Clock Interno do STM32)](#14-rtc-real-time-clock-interno-do-stm32)
 
-### 16. [Comunicação SPI](#16-comunicação-spi)
+### 15. [Comunicação Serial - USART](#15-comunicação-serial---usart)
 
-### 17. [FreeRTOS](#17-freertos)
+### 16. [Comunicação I2C](#16-comunicação-i2c)
 
-### 18. [LCD 16x2](#18-lcd-16x2)
+### 17. [Comunicação SPI](#17-comunicação-spi)
 
-### 19. [SdCard](#19-sdcard)
+### 18. [FreeRTOS](#18-freertos)
 
-### 20. [TouchGF Designer](#20-touchgf-designer)
+### 19. [LCD 16x2](#19-lcd-16x2)
 
-### 21. [Nextion Display](#21-nextion-display)
+### 20. [SdCard](#20-sdcard)
 
-### 22. [Modbus - RTU Serial e Ethernet](#22-modbus---rtu-serial-e-ethernet)
+### 21. [TouchGF Designer](#21-touchgf-designer)
 
-### 23. [Processamento Digital de Sinais](#23-processamento-digital-de-sinais)
+### 22. [Nextion Display](#22-nextion-display)
 
-### 24. [Comunicação CAN](#24-comunicação-can)
+### 23. [Modbus - RTU Serial e Ethernet](#23-modbus---rtu-serial-e-ethernet)
 
-### 25. [CMSIS-DSP](#25-cmsis-dsp)
+### 24. [Processamento Digital de Sinais](#24-processamento-digital-de-sinais)
 
-### 26. [Memória Flash Interna do STM32](#26-memória-flash-interna-do-stm32)
+### 25. [Comunicação CAN](#25-comunicação-can)
 
-### 27. [Bootloader - Sistema de Memória](#27-bootloader---sistema-de-memória)
+### 26. [CMSIS-DSP](#26-cmsis-dsp)
+
+### 27. [Memória Flash Interna do STM32](#27-memória-flash-interna-do-stm32)
+
+### 28. [Bootloader - Sistema de Memória](#28-bootloader---sistema-de-memória)
 
 ---
 
