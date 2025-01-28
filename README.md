@@ -83,7 +83,9 @@ Alguns conceitos:
     
     Va em "*Project>Properties>C/C++ Build>Settings*", e deixe marcado as seguinte opções:
     ![alt text](imgs/config_gerar_bin_hex.png)
-    
+
+- [STM32 M4 Clicker](https://www.mikroe.com/clicker-stm32f4)    
+
 ### 6. [Clocks do STM32](#6-clocks-do-stm32)
 
 ### 7. [Gpio's do STM32](#7-gpios-do-stm32)
