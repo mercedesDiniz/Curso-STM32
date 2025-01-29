@@ -84,7 +84,13 @@ Alguns conceitos:
     Va em "*Project>Properties>C/C++ Build>Settings*", e deixe marcado as seguinte opções:
     ![alt text](imgs/config_gerar_bin_hex.png)
 
+
 - [STM32 M4 Clicker](https://www.mikroe.com/clicker-stm32f4)    
+
+- STM32 microcontroller system memory boot mode: [AN2606](https://www.st.com/content/ccc/resource/technical/document/application_note/b9/9b/16/3a/12/1e/40/0c/CD00167594.pdf/files/CD00167594.pdf/jcr:content/translations/en.CD00167594.pdf)
+
+![alt text](imgs/boot_modes.png)
+
 
 ### 6. [Clocks do STM32](#6-clocks-do-stm32)
 
