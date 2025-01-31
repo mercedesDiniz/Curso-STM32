@@ -68,7 +68,8 @@ Alguns conceitos:
 -  Debugger Serial:   
     ![alt text](imgs/config_debugger_serial.png)
 
-    Em *Run>Debug Configurations*, habilite em *Debugger* o recurso *Serial Wire Viewr (SWV)*.
+    Em *Run>Debug Configurations*, habilite em *Debugger* o recurso *Serial Wire Viewr (SWV)*. 
+    
     ![alt text](imgs/swv.png)
 
     Ao entrar do modo *Debugger* vai em *Window>Show View> SWV>SWV Data Trace Timerline Graph*
@@ -91,6 +92,20 @@ Alguns conceitos:
 
 ![alt text](imgs/boot_modes.png)
 
+- Para gravação do firmware via UART, use o [FLASHER-STM32](https://www.st.com/en/development-tools/flasher-stm32.html) ou o [STM32CubeProg](https://www.st.com/en/development-tools/stm32cubeprog.html), e faça uma das conexão indicadas na tabela 152 do ***application note* AN2606**. 
+
+    NOTA: Coloque o **BOOT0** em nível logico alto para gravação do firmware. ![alt text](imgs/pin_boot0.png)
+
+- Cuidados com o ***Option Bytes***: [AN4758](https://www.st.com/resource/en/application_note/an4758-proprietary-code-readout-protection-on-stm32l4-stm32l4-stm32g4-and-stm32wb-series-mcus-stmicroelectronics.pdf) e [AN4701](https://www.st.com/resource/en/application_note/an4701-proprietary-code-readout-protection-on-microcontrollers-of-the-stm32f4-series-stmicroelectronics.pdf)
+
+- Bootloader Customizado
+    - Referencias: [AN3155](https://www.st.com/resource/en/application_note/an3155-usart-protocol-used-in-the-stm32-bootloader-stmicroelectronics.pdf) e AN2606.
+    - Terminal RS232: [Termite](https://www.compuphase.com/software_termite.htm)
+    - O *baud rate* deve está entre 1200 e 115200, e a paridade em *even*.
+
+    ![Figura 1 - AN3155](imgs/an3155-fig1.png)
+
+    USART bootloader commands: ![Tabela 2 - AN3155](imgs/an3155-tab2.png)
 
 ### 6. [Clocks do STM32](#6-clocks-do-stm32)
 
