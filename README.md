@@ -40,7 +40,7 @@ Alguns conceitos:
 - **IDE**: [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html)
 - **Gravador**: [STM32CubeProg](https://www.st.com/en/development-tools/stm32cubeprog.html)
 - **Servidor ST-LINK**: [ST-LINK server](https://www.st.com/en/development-tools/st-link-server.html)
-- **Núcleo Board**: [NUCLEO-L476RG](https://www.st.com/en/evaluation-tools/nucleo-l476rg.html), [UM1724: STM32 Nucleo-64 boards (MB1136)](https://www.st.com/content/ccc/resource/technical/document/user_manual/98/2e/fa/4b/e0/82/43/b7/DM00105823.pdf/files/DM00105823.pdf/jcr:content/translations/en.DM00105823.pdf). 
+- **Núcleo Board**: [NUCLEO-L476RG](https://www.st.com/en/evaluation-tools/nucleo-l476rg.html), [UM1724: STM32 Nucleo-64 boards (MB1136)](https://www.st.com/content/ccc/resource/technical/document/user_manual/98/2e/fa/4b/e0/82/43/b7/DM00105823.pdf/files/DM00105823.pdf/jcr:content/translations/en.DM00105823.pdf), [Schematic MB1136-C05](https://www.st.com/resource/en/schematic_pack/mb1136-default-c05_schematic.pdf). 
 - **Upgrade St-Link**: ![U](imgs/upgrade_stlink.png)
 
 ### 3. [Revisão de Linguagem C Básica](#3-revisão-de-linguagem-c-básica)
@@ -108,6 +108,22 @@ Alguns conceitos:
     USART bootloader commands: ![Tabela 2 - AN3155](imgs/an3155-tab2.png)
 
 ### 6. [Clocks do STM32](#6-clocks-do-stm32)
+- Documentação: [AN2867](https://www.st.com/resource/en/application_note/an2867-guidelines-for-oscillator-design-on-stm8afals-and-stm32-mcusmpus-stmicroelectronics.pdf)
+
+- Configurado em ***System Core>RCC***:![alt text](imgs/config_clock.png)
+
+- Ociladores - Crytal X3
+    - Valores de *load capacitance*:![alt text](imgs/clock_load_capacitance.png)
+
+        **NOTA**: A capacitância de dispersão $C_S$ pode se estimado como $2pF$ ou $5pF$, o $C_L$ é fornecido pelo fabricante do crytal selecionado, e $C_{L1}$ e $C_{L2}$ são os valores dos capacitores C33 e C34.
+
+        ![alt text](imgs/cirtuito_crytal_externo.png)
+- Ociladores - Crytal Externo
+    - Pinos para conexão externa: 
+    ![alt text](imgs/conexão_crytal_externo.png)
+        **NOTA**: Recomendado utilizar crytal de $16MHz$ ou $8MHz$ para projetos com HSE.
+
+
 
 ### 7. [Gpio's do STM32](#7-gpios-do-stm32)
 
