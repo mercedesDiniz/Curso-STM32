@@ -40,7 +40,7 @@ Alguns conceitos:
 - **IDE**: [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html)
 - **Gravador**: [STM32CubeProg](https://www.st.com/en/development-tools/stm32cubeprog.html)
 - **Servidor ST-LINK**: [ST-LINK server](https://www.st.com/en/development-tools/st-link-server.html)
-- **Núcleo Board**: [NUCLEO-L476RG](https://www.st.com/en/evaluation-tools/nucleo-l476rg.html), [UM1724: STM32 Nucleo-64 boards (MB1136)](https://www.st.com/content/ccc/resource/technical/document/user_manual/98/2e/fa/4b/e0/82/43/b7/DM00105823.pdf/files/DM00105823.pdf/jcr:content/translations/en.DM00105823.pdf), [Schematic MB1136-C05](https://www.st.com/resource/en/schematic_pack/mb1136-default-c05_schematic.pdf). 
+- **Núcleo Board**: [NUCLEO-L476RG](https://www.st.com/en/evaluation-tools/nucleo-l476rg.html), [UM1724: STM32 Nucleo-64 boards (MB1136)](https://www.st.com/content/ccc/resource/technical/document/user_manual/98/2e/fa/4b/e0/82/43/b7/DM00105823.pdf/files/DM00105823.pdf/jcr:content/translations/en.DM00105823.pdf), [Schematic MB1136-C05](https://www.st.com/resource/en/schematic_pack/mb1136-default-c05_schematic.pdf), [Datasheet STM32L476xx](https://www.st.com/resource/en/datasheet/stm32l476je.pdf). 
 - **Upgrade St-Link**: ![U](imgs/upgrade_stlink.png)
 
 ### 3. [Revisão de Linguagem C Básica](#3-revisão-de-linguagem-c-básica)
@@ -123,9 +123,14 @@ Alguns conceitos:
     ![alt text](imgs/conexão_crytal_externo.png)
         **NOTA**: Recomendado utilizar crytal de $16MHz$ ou $8MHz$ para projetos com HSE.
 
-
-
 ### 7. [Gpio's do STM32](#7-gpios-do-stm32)
+- Documentação: [AN4899](https://www.st.com/resource/en/application_note/an4899-stm32-microcontroller-gpio-hardware-settings-and-lowpower-consumption-stmicroelectronics.pdf)
+
+- **NOTA**: Na seção ***"Output driving current"*** do datasheet,  encontram-se as informações sobre a corrente máxima que os pinos de GPIO podem suportar, seja ao receber (sink) da carga conectada, ou ao fornecer (source) para ela. 
+
+- Opções de configura:
+    - GPIO mode: ![alt text](imgs/gpio_mode.png)
+
 
 ### 8. [Timers do STM32](#8-timers-do-stm32)
 
