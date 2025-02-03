@@ -133,6 +133,10 @@ Alguns conceitos:
 - Opções de configura:
     - GPIO mode: ![alt text](imgs/gpio_mode.png)
 
+- **Debounce** é uma técnica que evita que um interruptor físico seja detectado múltiplas vezes quando pressionado ou liberado. 
+    - **NOTA**: Ao utilizar um botão, use um capacito ($1uF$) em paralelo ao mesmo.
+
+- **Interrupção** é uma funcionalidade que interrompe a tarefa atual do processador para processar um evento.
 
 ### 8. [Timers do STM32](#8-timers-do-stm32)
 
