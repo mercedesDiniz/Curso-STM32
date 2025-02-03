@@ -60,8 +60,8 @@ all: main-build
 main-build: Clock01.elf secondary-outputs
 
 # Tool invocations
-Clock01.elf Clock01.map: $(OBJS) $(USER_OBJS) C:\Users\Mercedes\Documents\LASSE\Enguia\treinamentos\stm32\code\Clock01\STM32L476RGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Clock01.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Mercedes\Documents\LASSE\Enguia\treinamentos\stm32\code\Clock01\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Clock01.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Clock01.elf Clock01.map: $(OBJS) $(USER_OBJS) C:\Users\Mercedes\ Diniz\Documents\LASSE\Enguia\treinamentos\stm32\codes\Clock01\STM32L476RGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Clock01.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Mercedes Diniz\Documents\LASSE\Enguia\treinamentos\stm32\codes\Clock01\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Clock01.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

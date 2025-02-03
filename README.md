@@ -110,7 +110,9 @@ Alguns conceitos:
 ### 6. [Clocks do STM32](#6-clocks-do-stm32)
 - Documentação: [AN2867](https://www.st.com/resource/en/application_note/an2867-guidelines-for-oscillator-design-on-stm8afals-and-stm32-mcusmpus-stmicroelectronics.pdf)
 
-- Configurado em ***System Core>RCC***:![alt text](imgs/config_clock.png)
+- Configurado em ***System Core>RCC***: 
+
+    ![alt text](imgs/config_clock.png)
 
 - Ociladores - Crytal X3
     - Valores de *load capacitance*:![alt text](imgs/clock_load_capacitance.png)
