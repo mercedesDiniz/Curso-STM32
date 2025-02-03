@@ -87,7 +87,7 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-
+  uint8_t value_button;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -98,7 +98,7 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 	  // Se o botão B1 (PC13) for pressionado (nível lógico 0), o led LD2 (PA5) acende.
-	  uint8_t value_button = HAL_GPIO_ReadPin(GPIOC, button1_Pin);
+	  value_button = HAL_GPIO_ReadPin(GPIOC, button1_Pin);
 	  if (!value_button) {
 		  HAL_GPIO_WritePin(GPIOA, led1_Pin, 1);
 	}else{
