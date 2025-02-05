@@ -157,6 +157,33 @@ Alguns conceitos:
 ### 16. [Comunicação I2C](#16-comunicação-i2c)
 
 ### 17. [Comunicação SPI](#17-comunicação-spi)
+- ***Serial Peripheral Interface* (SPI)**:
+    - Alta velocidade (20MHz)
+    - Conexões e Pinos:
+    ![alt text](imgs/spi_conexao.jpg)
+
+    - **Modos de Operação**: consistem em quatro combinações de *Clock Polarity*(CPOL) e *Clock Phase* (CPHA).
+
+        | Modo | CPOL | CPHA | Borda de Troca | Transição | Nível em IDLE |
+        |:-: | :-: | :-: |:-----:| :--------: | :----: |
+        | 0  | 0   | 0   | Subida | Meio do bit | 1 |
+        | 1  | 0   | 1   | Decida | Começo do bit | 0 |
+        | 2  | 1   | 0   | Decida | Meio do bit | 0 |
+        | 3  | 1   | 1   | Subida | Começo do bit |1 |
+
+        **NOTA**: Os modos 0 e 3 são os mais utilizados.
+
+        ![alt text](imgs/spi_modos.png)
+
+        **NOTA**: O CPOL define o nível inicial do clock, sendo 0 para nível baixo e 1 para nível alto, enquanto o CPHA determina o momento da transição, sendo 0 para a transição no meio do bit, e 1 para a transição no início do bit.
+
+    - Informações Complementares:
+
+        [Artigo: Hardware - Interface SPI by Leonardo Ritter](https://www.hardwarecentral.net/single-post/2018/08/29/hardware-interface-spi) 
+
+        ![alt text](imgs/spi_inf_complementar.png)
+        ![alt text](imgs/spi_inf_complementar_01.png)
+        ![alt text](imgs/spi_inf_complementar_02.png)
 
 ### 18. [FreeRTOS](#18-freertos)
 
