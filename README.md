@@ -185,6 +185,8 @@ Alguns conceitos:
         ![alt text](imgs/spi_inf_complementar_01.png)
         ![alt text](imgs/spi_inf_complementar_02.png)
 
+- Componente usado nos exercícios da aula: [MCP4921](https://ww1.microchip.com/downloads/en/DeviceDoc/21897B.pdf)
+
 ### 18. [FreeRTOS](#18-freertos)
 
 ### 19. [LCD 16x2](#19-lcd-16x2)
