@@ -185,7 +185,7 @@ Alguns conceitos:
         ![alt text](imgs/spi_inf_complementar_01.png)
         ![alt text](imgs/spi_inf_complementar_02.png)
 
-- Componente usado nos exercícios da aula: [MCP4921](https://ww1.microchip.com/downloads/en/DeviceDoc/21897B.pdf)
+- Componente que usam comunicação SPI: [MCP4921](https://ww1.microchip.com/downloads/en/DeviceDoc/21897B.pdf), [MCP3008](https://ww1.microchip.com/downloads/aemDocuments/documents/MSLD/ProductDocuments/DataSheets/MCP3004-MCP3008-Data-Sheet-DS20001295.pdf), [ADE9000](https://www.analog.com/en/products/ade9000.html).
 
 ### 18. [FreeRTOS](#18-freertos)
 
