@@ -188,6 +188,28 @@ Alguns conceitos:
 - Componente que usam comunicação SPI: [MCP4921](https://ww1.microchip.com/downloads/en/DeviceDoc/21897B.pdf), [MCP3008](https://ww1.microchip.com/downloads/aemDocuments/documents/MSLD/ProductDocuments/DataSheets/MCP3004-MCP3008-Data-Sheet-DS20001295.pdf), [ADE9000](https://www.analog.com/en/products/ade9000.html).
 
 ### 18. [FreeRTOS](#18-freertos)
+É um tipo de sistema operacional destinado a execução de tarefas dentro de um determinado prazo de tempo (deadline). O principal propósito de [FreeRTOS](https://www.freertos.org/) é a execução de mais tarefas (tasks) ao mesmo tempo.
+
+- **Características**:
+    - Gratuito (MIT Open Source License);
+    - Código Aberto;
+    - Integração no STM32CubeIDE, CMSIS-RTOS (Cortex Microcontroller Software Interface Standard)
+
+- **Em que dispositivos é usado?**
+    - MCUS de 8/16 bits -> Programação em Bare Matel;
+    - **MCUS de 32 bits** --> Programação em Bare Matel ou **FreeRTOS**;
+    - Processadores -> Sistema Operacional de Próposito Genérico (Windows, Linux, Android e etc).
+
+- **Configurando**
+![alt text](imgs/rtos_modos.png)
+
+    Verifique se a opção ``USE_PREEMPTION`` está habilitada e observe o valor do deadline em ``TICK_RATE_HZ``.
+
+    Após selecionar o modo, vá na aba ``Tasks and Queues`` do menu de configurações para criar, excluir ou editar as tarefas.
+    ![alt text](imgs/rtos_tasks.png)
+
+    **NOTA:** Ao usar o RTOS, é recomendado **NÃO** usar o ``Systick`` como o timebase source.    
+    ![alt text](imgs/rtos_timebase_source.png)
 
 ### 19. [LCD 16x2](#19-lcd-16x2)
 
