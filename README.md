@@ -26,7 +26,7 @@ A família do Cortex tem três categorias principais:
 2. ARM Cortex-R (p/ aplicações em tempo real)
 3. ARM Cortex-M (p/ microcontroladores)
 
-![Famílias Cortex](imgs/familias_cortex.png)
+![Famílias Cortex](docs/imgs/familias_cortex.png)
 
 - [8-bit vs. 32-bit MCU: Choosing the Right Microcontroller for Your PCB Design](https://resources.altium.com/p/8-bit-vs-32-bit-mcu-choosing-right-microcontroller-your-pcb-design)
 
@@ -41,7 +41,7 @@ Alguns conceitos:
 - **Gravador**: [STM32CubeProg](https://www.st.com/en/development-tools/stm32cubeprog.html)
 - **Servidor ST-LINK**: [ST-LINK server](https://www.st.com/en/development-tools/st-link-server.html)
 - **Núcleo Board**: [NUCLEO-L476RG](https://www.st.com/en/evaluation-tools/nucleo-l476rg.html), [UM1724: STM32 Nucleo-64 boards (MB1136)](https://www.st.com/content/ccc/resource/technical/document/user_manual/98/2e/fa/4b/e0/82/43/b7/DM00105823.pdf/files/DM00105823.pdf/jcr:content/translations/en.DM00105823.pdf), [Schematic MB1136-C05](https://www.st.com/resource/en/schematic_pack/mb1136-default-c05_schematic.pdf), [Datasheet STM32L476xx](https://www.st.com/resource/en/datasheet/stm32l476je.pdf). 
-- **Upgrade St-Link**: ![U](imgs/upgrade_stlink.png)
+- **Upgrade St-Link**: ![U](docs/imgs/upgrade_stlink.png)
 
 ### 3. [Revisão de Linguagem C Básica](#3-revisão-de-linguagem-c-básica)
 
@@ -63,19 +63,19 @@ Alguns conceitos:
 - Debugger: *Run>Debug As>1 STM32 Cortex-M C/C++ Application*
 
     Click em *Apply* e *OK* na janela de configuração do debugger.
-    ![alt text](imgs/win_config_debugger.png)
+    ![alt text](docs/imgs/win_config_debugger.png)
 
 -  Debugger Serial:   
-    ![alt text](imgs/config_debugger_serial.png)
+    ![alt text](docs/imgs/config_debugger_serial.png)
 
     Em *Run>Debug Configurations*, habilite em *Debugger* o recurso *Serial Wire Viewr (SWV)*. 
     
-    ![alt text](imgs/swv.png)
+    ![alt text](docs/imgs/swv.png)
 
     Ao entrar do modo *Debugger* vai em *Window>Show View> SWV>SWV Data Trace Timerline Graph*
 
     Click em *Configure trace* e na aba inicializada deixe as seguinte opções:
-    ![alt text](imgs/swv2.png)
+    ![alt text](docs/imgs/swv2.png)
 
 ### 5. [Gravação, Bootloader e Customização](#5-gravação-bootloader-e-customização)
 - Modelos de ST-Links: [ST-LINK/V2](https://www.st.com/en/development-tools/st-link-v2.html) e [STLINK-V3](https://www.st.com/en/development-tools/stlink-v3set.html)
@@ -83,18 +83,18 @@ Alguns conceitos:
 - Habilitando a geração dos arquivos Bin e Hex ao compilar: 
     
     Va em "*Project>Properties>C/C++ Build>Settings*", e deixe marcado as seguinte opções:
-    ![alt text](imgs/config_gerar_bin_hex.png)
+    ![alt text](docs/imgs/config_gerar_bin_hex.png)
 
 
 - [STM32 M4 Clicker](https://www.mikroe.com/clicker-stm32f4)    
 
 - STM32 microcontroller system memory boot mode: [AN2606](https://www.st.com/content/ccc/resource/technical/document/application_note/b9/9b/16/3a/12/1e/40/0c/CD00167594.pdf/files/CD00167594.pdf/jcr:content/translations/en.CD00167594.pdf)
 
-![alt text](imgs/boot_modes.png)
+![alt text](docs/imgs/boot_modes.png)
 
 - Para gravação do firmware via UART, use o [FLASHER-STM32](https://www.st.com/en/development-tools/flasher-stm32.html) ou o [STM32CubeProg](https://www.st.com/en/development-tools/stm32cubeprog.html), e faça uma das conexão indicadas na tabela 152 do ***application note* AN2606**. 
 
-    NOTA: Coloque o **BOOT0** em nível logico alto para gravação do firmware. ![alt text](imgs/pin_boot0.png)
+    NOTA: Coloque o **BOOT0** em nível logico alto para gravação do firmware. ![alt text](docs/imgs/pin_boot0.png)
 
 - Cuidados com o ***Option Bytes***: [AN4758](https://www.st.com/resource/en/application_note/an4758-proprietary-code-readout-protection-on-stm32l4-stm32l4-stm32g4-and-stm32wb-series-mcus-stmicroelectronics.pdf) e [AN4701](https://www.st.com/resource/en/application_note/an4701-proprietary-code-readout-protection-on-microcontrollers-of-the-stm32f4-series-stmicroelectronics.pdf)
 
@@ -103,26 +103,26 @@ Alguns conceitos:
     - Terminal RS232: [Termite](https://www.compuphase.com/software_termite.htm)
     - O *baud rate* deve está entre 1200 e 115200, e a paridade em *even*.
 
-    ![Figura 1 - AN3155](imgs/an3155-fig1.png)
+    ![Figura 1 - AN3155](docs/imgs/an3155-fig1.png)
 
-    USART bootloader commands: ![Tabela 2 - AN3155](imgs/an3155-tab2.png)
+    USART bootloader commands: ![Tabela 2 - AN3155](docs/imgs/an3155-tab2.png)
 
 ### 6. [Clocks do STM32](#6-clocks-do-stm32)
 - Documentação: [AN2867](https://www.st.com/resource/en/application_note/an2867-guidelines-for-oscillator-design-on-stm8afals-and-stm32-mcusmpus-stmicroelectronics.pdf)
 
 - Configurado em ***System Core>RCC***: 
 
-    ![alt text](imgs/config_clock.png)
+    ![alt text](docs/imgs/config_clock.png)
 
 - Ociladores - Crytal X3
-    - Valores de *load capacitance*:![alt text](imgs/clock_load_capacitance.png)
+    - Valores de *load capacitance*:![alt text](docs/imgs/clock_load_capacitance.png)
 
         **NOTA**: A capacitância de dispersão $C_S$ pode se estimado como $2pF$ ou $5pF$, o $C_L$ é fornecido pelo fabricante do crytal selecionado, e $C_{L1}$ e $C_{L2}$ são os valores dos capacitores C33 e C34.
 
-        ![alt text](imgs/cirtuito_crytal_externo.png)
+        ![alt text](docs/imgs/cirtuito_crytal_externo.png)
 - Ociladores - Crytal Externo
     - Pinos para conexão externa: 
-    ![alt text](imgs/conexão_crytal_externo.png)
+    ![alt text](docs/imgs/conexão_crytal_externo.png)
         **NOTA**: Recomendado utilizar crytal de $16MHz$ ou $8MHz$ para projetos com HSE.
 
 ### 7. [Gpio's do STM32](#7-gpios-do-stm32)
@@ -131,7 +131,7 @@ Alguns conceitos:
 - **NOTA**: Na seção ***"Output driving current"*** do datasheet,  encontram-se as informações sobre a corrente máxima que os pinos de GPIO podem suportar, seja ao receber (sink) da carga conectada, ou ao fornecer (source) para ela. 
 
 - Opções de configura:
-    - GPIO mode: ![alt text](imgs/gpio_mode.png)
+    - GPIO mode: ![alt text](docs/imgs/gpio_mode.png)
 
 - **Debounce** é uma técnica que evita que um interruptor físico seja detectado múltiplas vezes quando pressionado ou liberado. 
     - **NOTA**: Ao utilizar um botão, use um capacito ($1uF$) em paralelo ao mesmo.
@@ -149,7 +149,7 @@ Alguns conceitos:
     
     O ***Direct Memory Access*** é um elemento lógico digital que permite a transferência de dados que pode ser usado em conjunto com o processador principal do mesmo chip. Uma de suas vantagens é que libera operações da CPU e a torna "livre". Outra característica é a otimização de transferência de dados aumentando a eficiência e velocidade no sistema.
     
-    ![alt text](imgs/dma_vg.png)
+    ![alt text](docs/imgs/dma_vg.png)
 
     - **Modelos de Transferência de Dados:**
         1. Mover dados de um periférico para um endereço de memória;
@@ -172,7 +172,7 @@ Alguns conceitos:
 - ***Serial Peripheral Interface* (SPI)**:
     - Alta velocidade (20MHz)
     - Conexões e Pinos:
-    ![alt text](imgs/spi_conexao.jpg)
+    ![alt text](docs/imgs/spi_conexao.jpg)
 
     - **Modos de Operação**: consistem em quatro combinações de *Clock Polarity*(CPOL) e *Clock Phase* (CPHA).
 
@@ -185,7 +185,7 @@ Alguns conceitos:
 
         **NOTA**: Os modos 0 e 3 são os mais utilizados.
 
-        ![alt text](imgs/spi_modos.png)
+        ![alt text](docs/imgs/spi_modos.png)
 
         **NOTA**: O CPOL define o nível inicial do clock, sendo 0 para nível baixo e 1 para nível alto, enquanto o CPHA determina o momento da transição, sendo 0 para a transição no meio do bit, e 1 para a transição no início do bit.
 
@@ -193,9 +193,9 @@ Alguns conceitos:
 
         [Artigo: Hardware - Interface SPI by Leonardo Ritter](https://www.hardwarecentral.net/single-post/2018/08/29/hardware-interface-spi) 
 
-        ![alt text](imgs/spi_inf_complementar.png)
-        ![alt text](imgs/spi_inf_complementar_01.png)
-        ![alt text](imgs/spi_inf_complementar_02.png)
+        ![alt text](docs/imgs/spi_inf_complementar.png)
+        ![alt text](docs/imgs/spi_inf_complementar_01.png)
+        ![alt text](docs/imgs/spi_inf_complementar_02.png)
 
 - Componente que usam comunicação SPI: [MCP4921](https://ww1.microchip.com/downloads/en/DeviceDoc/21897B.pdf), [MCP3008](https://ww1.microchip.com/downloads/aemDocuments/documents/MSLD/ProductDocuments/DataSheets/MCP3004-MCP3008-Data-Sheet-DS20001295.pdf), [ADE9000](https://www.analog.com/en/products/ade9000.html).
 
@@ -213,15 +213,15 @@ Alguns conceitos:
     - Processadores -> Sistema Operacional de Próposito Genérico (Windows, Linux, Android e etc).
 
 - **Configurando**
-![alt text](imgs/rtos_modos.png)
+![alt text](docs/imgs/rtos_modos.png)
 
     Verifique se a opção ``USE_PREEMPTION`` está habilitada e observe o valor do deadline em ``TICK_RATE_HZ``.
 
     Após selecionar o modo, vá na aba ``Tasks and Queues`` do menu de configurações para criar, excluir ou editar as tarefas.
-    ![alt text](imgs/rtos_tasks.png)
+    ![alt text](docs/imgs/rtos_tasks.png)
 
     **NOTA:** Ao usar o RTOS, é recomendado **NÃO** usar o ``Systick`` como o timebase source.    
-    ![alt text](imgs/rtos_timebase_source.png)
+    ![alt text](docs/imgs/rtos_timebase_source.png)
 
 ### 19. [LCD 16x2](#19-lcd-16x2)
 
@@ -232,6 +232,38 @@ Alguns conceitos:
 ### 22. [Nextion Display](#22-nextion-display)
 
 ### 23. [Modbus - RTU Serial e Ethernet](#23-modbus---rtu-serial-e-ethernet)
+
+O [MODBUS](https://www.modbus.org/) é um protocolo de comunicação desenvolvido pela Modicon em 1979, cujo o principal propósito é estabelecer a comunicação de dados entre dispositivos, sendo altamente encontrado em equipamentos de automação e controladores lógicos programáveis.
+
+- **Camada física** :
+    - **RS232-Serial**: utilizado apenas em comunicações do tipo ponto a ponto (o mestre e 1 escravo), com velocidade máxima em torno de 115Kbps e a distância máxima entre os dispositivos em torno de 30m. 
+    - **RS485-Serial**: muito utilizado na indústria e permite taxas de 12Mbps e em alguns casos até 50Mbps, com a distância máxima em torno de 1200m, com o máximo 32 dispositivos no barramento.
+    - **Ethernet TCP/IP (Modbus TCP)**.
+
+- **Topologia**:
+    - **Modbus Serial:**
+    ![alt text](docs/imgs/modbus_topologia_serial.png)
+
+    - **Modbus TCP:**
+        ![alt text](docs/imgs/modbus_topologia_tcp.png)
+        
+- **Modos de transmisão**:
+
+    Os modos definem a forma como são transmitidos os bytes da mensagem, e como a informação da mensagem será empacotada na mensagem e descompactada. Não é possível utilizar os dois modos de transmissão na mesma rede. Na especificação do protocolo Modbus estão definidos os seguintes modos de transmissão:
+
+    - **ASCII**
+
+        ![alt text](docs/imgs/modbus_ascii_mensagem.png)
+
+    - **RTU (Remote Terminal Unit)**:     
+        ![alt text](docs/imgs/modbus_rtu_mensagem.png)
+
+    - **TCP**
+
+        ![alt text](docs/imgs/modbus_tcp_mensagem.png)
+
+
+
 
 ### 24. [Processamento Digital de Sinais](#24-processamento-digital-de-sinais)
 
