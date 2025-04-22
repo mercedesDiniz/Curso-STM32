@@ -223,6 +223,10 @@ Alguns conceitos:
     **NOTA:** Ao usar o RTOS, é recomendado **NÃO** usar o ``Systick`` como o timebase source.    
     ![alt text](docs/imgs/rtos_timebase_source.png)
 
+- **Prioridades**
+    
+    ![alt text](docs/imgs/rtos_priority.png)
+
 ### 19. [LCD 16x2](#19-lcd-16x2)
 
 ### 20. [SdCard](#20-sdcard)
