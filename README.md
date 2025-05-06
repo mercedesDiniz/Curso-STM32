@@ -252,8 +252,9 @@ Artigo: [USART vs UART: Entendendo Diferenças e Aplicações](https://basicaoda
 
 - **Gerenciamento de Funções**:``osThreadSuspend()`` e ``osThreadResume()``.
 
-- **Semáforo Binário**
+- **Semáforo Binário:** É um mecanismo de sincronização que permite o acesso a recursos compartilhados por um único processo ou thread de cada vez.
 
+    ![alt text](docs/imgs/semaforo_bin_config.png)
 
 ### 19. [LCD 16x2](#19-lcd-16x2)
 
