@@ -47,6 +47,8 @@ Alguns conceitos:
 
 - Pratique em [Dev-C++](https://sourceforge.net/projects/orwelldevcpp/).
 
+- [Documentação C++](https://cplusplus.com/)
+
 - [Tabelas de valores e unidades em C](https://www.each.usp.br/digiampietri/ACH2023/tabelasemc.html)
 
 - [Tabela ASCII](https://www.ibm.com/docs/pt-br/aix/7.3?topic=adapters-ascii-decimal-hexadecimal-octal-binary-conversion-table)
@@ -166,6 +168,27 @@ Alguns conceitos:
 
 ### 15. [Comunicação Serial - USART](#15-comunicação-serial---usart)
 
+- **Conexão**
+
+    ![alt text](docs/imgs/uart_conexao_base.png)
+
+- **Modos de Transmissão** 
+
+    ![alt text](docs/imgs/uart_vs_usart.png)
+Artigo: [USART vs UART: Entendendo Diferenças e Aplicações](https://basicaodaeletronica.com.br/microcontroladores/usart-vs-uart-entendendo-diferencas-e-aplicacoes/)
+
+- **Padrões de Comunicação Serial:**
+    - **TTL (*Transistor-Transistor Logic*)** opera com tensões mais baixas (geralmente 0-3.3V ou 0-5V), sendo mais comum em sistemas embarcados e microcontroladores. 
+    - **RS-232** opera com tensões mais elevadas (geralmente +/- 15V), tornando-o mais resistente a ruído e adequado para comunicações em maior distância, como na comunicação entre computadores e periféricos.
+    
+        ![alt text](docs/imgs/rs232_vs_ttl.png)
+
+- **Software Auxiliares**
+    - [Virtual Serial Ports Emulator (VSPE)](https://eterlogic.com/Products.VSPE.html)  
+    - [Termite Serial](https://www.compuphase.com/software_termite.htm)
+    - [PulseView](https://sigrok.org/wiki/PulseView)
+    - [Logic 2](https://www.saleae.com/pages/downloads)
+
 ### 16. [Comunicação I2C](#16-comunicação-i2c)
 
 ### 17. [Comunicação SPI](#17-comunicação-spi)
@@ -226,6 +249,11 @@ Alguns conceitos:
 - **Prioridades**
     
     ![alt text](docs/imgs/rtos_priority.png)
+
+- **Gerenciamento de Funções**:``osThreadSuspend()`` e ``osThreadResume()``.
+
+- **Semáforo Binário**
+
 
 ### 19. [LCD 16x2](#19-lcd-16x2)
 
