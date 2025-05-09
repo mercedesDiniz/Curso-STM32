@@ -261,6 +261,8 @@ Artigo: [USART vs UART: Entendendo Diferenças e Aplicações](https://basicaoda
 
     - **Mutex:** É um tipo especial de semáforo projetado especificamente para evitar condições de corrida entre tarefas que tentam acessar recursos compartilhados. Ao contrário de um semáforo binário, o mutex é associado a uma única tarefa, e só a mesma tarefa pode liberar o mutex que ela adquiriu. Isso garante que uma tarefa tenha a posse exclusiva do recurso, evitando que outra tarefa altere o estado do recurso enquanto ele estiver sendo utilizado. O mutex é frequentemente usado para proteger seções críticas de código.
 
+    - **Queues:** É uma estrutura de dados utilizadas para a troca de informações entre tarefas em um RTOS, operando no modelo FIFO (First-In, First-Out). As filas permitem que uma tarefa coloque dados na fila e outra tarefa os processe na ordem em que foram inseridos. Elas são frequentemente usadas para sincronização de tarefas, permitindo que tarefas produtoras e consumidoras troquem dados de forma eficiente. Além disso, as filas podem ser utilizadas para controlar o fluxo de informações, bloqueando tarefas quando a fila está cheia ou vazia.
+
 ### 19. [LCD 16x2](#19-lcd-16x2)
 
 ### 20. [SdCard](#20-sdcard)
