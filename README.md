@@ -223,7 +223,9 @@ Artigo: [USART vs UART: Entendendo Diferenças e Aplicações](https://basicaoda
 - Componente que usam comunicação SPI: [MCP4921](https://ww1.microchip.com/downloads/en/DeviceDoc/21897B.pdf), [MCP3008](https://ww1.microchip.com/downloads/aemDocuments/documents/MSLD/ProductDocuments/DataSheets/MCP3004-MCP3008-Data-Sheet-DS20001295.pdf), [ADE9000](https://www.analog.com/en/products/ade9000.html).
 
 ### 18. [FreeRTOS](#18-freertos)
-É um tipo de sistema operacional destinado a execução de tarefas dentro de um determinado prazo de tempo (deadline). O principal propósito de [FreeRTOS](https://www.freertos.org/) é a execução de mais tarefas (tasks) ao mesmo tempo.
+É um tipo de sistema operacional destinado a execução de tarefas dentro de um determinado prazo de tempo (deadline). O principal propósito de [FreeRTOS](https://www.freertos.org/) é a execução de mais tarefas (tasks) sincronizadas.
+    
+![alt text](docs/imgs/rtos_scheduler.png)
 
 - **Características**:
     - Gratuito (MIT Open Source License);
@@ -252,9 +254,12 @@ Artigo: [USART vs UART: Entendendo Diferenças e Aplicações](https://basicaoda
 
 - **Gerenciamento de Funções**:``osThreadSuspend()`` e ``osThreadResume()``.
 
-- **Semáforo Binário:** É um mecanismo de sincronização que permite o acesso a recursos compartilhados por um único processo ou thread de cada vez.
+- **Sincronização de tarefas**:
+    - **Semáforo Binário:** É um mecanismo de sincronização simples, que pode ter apenas dois estados: "0" (fechado) e "1" (aberto). Ele é utilizado para garantir que apenas uma tarefa tenha acesso a um recurso compartilhado por vez, funcionando como um "trava" de acesso. Quando o semáforo está em "1", a tarefa pode acessar o recurso. Quando está em "0", a tarefa que tentar acessar o recurso será bloqueada até que o semáforo seja liberado.
 
-    ![alt text](docs/imgs/semaforo_bin_config.png)
+    - **Semáforo Contador:** É uma versão mais generalizada do semáforo binário. Ele pode ter um valor que varia de 0 até um valor máximo especificado. O semáforo contador é útil quando você precisa controlar o acesso a múltiplos recursos idênticos (por exemplo, várias instâncias de um mesmo tipo de recurso). Cada vez que uma tarefa solicita um recurso, o semáforo é decrementado; quando o recurso é liberado, o semáforo é incrementado. Quando o semáforo chega a 0, outras tarefas ficam bloqueadas até que um recurso se torne disponível.
+
+    - **Mutex:** É um tipo especial de semáforo projetado especificamente para evitar condições de corrida entre tarefas que tentam acessar recursos compartilhados. Ao contrário de um semáforo binário, o mutex é associado a uma única tarefa, e só a mesma tarefa pode liberar o mutex que ela adquiriu. Isso garante que uma tarefa tenha a posse exclusiva do recurso, evitando que outra tarefa altere o estado do recurso enquanto ele estiver sendo utilizado. O mutex é frequentemente usado para proteger seções críticas de código.
 
 ### 19. [LCD 16x2](#19-lcd-16x2)
 
