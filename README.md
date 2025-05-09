@@ -227,6 +227,11 @@ Artigo: [USART vs UART: Entendendo Diferenças e Aplicações](https://basicaoda
     
 ![alt text](docs/imgs/rtos_scheduler.png)
 
+- **Treinamento da STMicroelectronics**:
+    - [FreeRTOS on STM32 v2](https://www.st.com/content/st_com/en/support/learning/stm32-education/stm32-moocs/freertos-common-microcontroller-software-interface-standard-osv2.html)
+    - [MOOC - FreeRTOS on STM32 v2](https://youtube.com/playlist?list=PLnMKNibPkDnExrAsDpjjF1PsvtoAIBquX&si=L7-Rqo6C5gulsUDn)
+    - [Materiais (slides, projetos, etc.)](https://drive.google.com/drive/folders/1yALzIl_zjftUID3aAWHSE3cJWfmixsSO)
+
 - **Características**:
     - Gratuito (MIT Open Source License);
     - Código Aberto;
