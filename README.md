@@ -162,11 +162,10 @@ Alguns conceitos:
 
     - **Frequência de Amostragem**: Quantidade de vezes que um sinal analógico é medido ou amostrado em um determinado intervalo de tempo para ser convertido em um sinal digital.
 
-    
-
-
 - **Conversão com Interrupção**
-
+    
+    Em `` NVIC Settings > NVIC Interrupt Table ``, habilite a opção: ``ADC1, ADC2 and ADC3  global interrrupts``.
+    
 - **Conversão com DMA**
     - **DMA - Visão Geral**
         
