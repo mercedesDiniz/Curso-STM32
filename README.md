@@ -146,17 +146,36 @@ Alguns conceitos:
 
 ### 10. [ADC (Conversor Analógico Digital)](#10-adc-conversor-analógico-digital)
 
+- **Conversão Simples**
+    - **Resolução**: Capacidade de representar um sinal analógico em um valor digital com precisão.
+        
+        | **Resolução (bits)** | **Range**       | **Precisão**                          |
+        |----------------------|------------------|----------------------------------------|
+        | n                    | $2^n - 1$        | $\frac{V_{ref}}{2^n - 1}$              |
+        | 8                    | $2^8 - 1$        | $\frac{V_{ref}}{2^{8} - 1}$            |
+        | 16                   | $2^{16} - 1$     | $\frac{V_{ref}}{2^{16} - 1}$           |
+        | 32                   | $2^{32} - 1$     | $\frac{V_{ref}}{2^{32} - 1}$           |
+        | 64                   | $2^{64} - 1$     | $\frac{V_{ref}}{2^{64} - 1}$           |
 
-- **DMA - Visão Geral**
-    
-    O ***Direct Memory Access*** é um elemento lógico digital que permite a transferência de dados que pode ser usado em conjunto com o processador principal do mesmo chip. Uma de suas vantagens é que libera operações da CPU e a torna "livre". Outra característica é a otimização de transferência de dados aumentando a eficiência e velocidade no sistema.
-    
-    ![alt text](docs/imgs/dma_vg.png)
 
-    - **Modelos de Transferência de Dados:**
-        1. Mover dados de um periférico para um endereço de memória;
-        2. Mover dados de um endereço de memória para um periférico;
-        3. Mover dados de memória para memória. 
+    - **Frequência de Amostragem**: Quantidade de vezes que um sinal analógico é medido ou amostrado em um determinado intervalo de tempo para ser convertido em um sinal digital.
+
+    
+
+
+- **Conversão com Interrupção**
+
+- **Conversão com DMA**
+    - **DMA - Visão Geral**
+        
+        O ***Direct Memory Access*** é um elemento lógico digital que permite a transferência de dados que pode ser usado em conjunto com o processador principal do mesmo chip. Uma de suas vantagens é que libera operações da CPU e a torna "livre". Outra característica é a otimização de transferência de dados aumentando a eficiência e velocidade no sistema.
+        
+        ![alt text](docs/imgs/dma_vg.png)
+
+        - **Modelos de Transferência de Dados:**
+            1. Mover dados de um periférico para um endereço de memória;
+            2. Mover dados de um endereço de memória para um periférico;
+            3. Mover dados de memória para memória. 
 
 ### 11. [DAC (Conversor Digital Analógico)](#11-dac-conversor-digital-analógico)
 
