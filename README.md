@@ -40,7 +40,9 @@ Alguns conceitos:
 - **IDE**: [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html)
 - **Gravador**: [STM32CubeProg](https://www.st.com/en/development-tools/stm32cubeprog.html)
 - **Servidor ST-LINK**: [ST-LINK server](https://www.st.com/en/development-tools/st-link-server.html)
-- **Núcleo Board**: [NUCLEO-L476RG](https://www.st.com/en/evaluation-tools/nucleo-l476rg.html), [UM1724: STM32 Nucleo-64 boards (MB1136)](https://www.st.com/content/ccc/resource/technical/document/user_manual/98/2e/fa/4b/e0/82/43/b7/DM00105823.pdf/files/DM00105823.pdf/jcr:content/translations/en.DM00105823.pdf), [Schematic MB1136-C05](https://www.st.com/resource/en/schematic_pack/mb1136-default-c05_schematic.pdf), [Datasheet STM32L476xx](https://www.st.com/resource/en/datasheet/stm32l476je.pdf). 
+- **Núcleo Board**: 
+    - [NUCLEO-L476RG](https://www.st.com/en/evaluation-tools/nucleo-l476rg.html):[MB1136-C05 Board schematic](https://www.st.com/resource/en/schematic_pack/mb1136-default-c05_schematic.pdf) ; [Datasheet STM32L476xx](https://www.st.com/resource/en/datasheet/stm32l476je.pdf). 
+    - [NUCLEO-G474RE](https://www.st.com/en/evaluation-tools/nucleo-g474re.html#documentation): [MB1367-G474RE-C05 Board schematic](https://www.st.com/resource/en/schematic_pack/mb1367-g474re-c05_schematic.pdf) . 
 - **Upgrade St-Link**: ![U](docs/imgs/upgrade_stlink.png)
 
 ### 3. [Revisão de Linguagem C Básica](#3-revisão-de-linguagem-c-básica)
