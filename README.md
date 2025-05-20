@@ -167,6 +167,10 @@ Alguns conceitos:
     Em `` NVIC Settings > NVIC Interrupt Table ``, habilite a opção: ``ADC1, ADC2 and ADC3  global interrrupts``.
     
 - **Conversão com DMA**
+
+    Em `` Parameter Settings ``, habilite a opção: ``DMS Continuos Requests``. Em seguinda adicione e configure o DMA o associando a um periférico. 
+    
+    ![alt text](docs/imgs/adc_dma_config.png)
     - **DMA - Visão Geral**
         
         O ***Direct Memory Access*** é um elemento lógico digital que permite a transferência de dados que pode ser usado em conjunto com o processador principal do mesmo chip. Uma de suas vantagens é que libera operações da CPU e a torna "livre". Outra característica é a otimização de transferência de dados aumentando a eficiência e velocidade no sistema.
