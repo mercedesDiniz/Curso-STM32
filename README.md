@@ -196,7 +196,14 @@ Alguns conceitos:
             ![alt text](docs/imgs/tconv_l478rg.png)
 
             Logo, a frequência de amostragem é: $f_s = \frac{1}{t_{CONV}}$.
+    - **ADC Simultâneo**
+        - No *application note* [AN3116](https://www.st.com/resource/en/application_note/an3116-stm32s-adc-modes-and-their-applications-stmicroelectronics.pdf), temos a documentação dos modos e aplicações do ADC do STM32.
 
+        - A entrada regular simultânea é usada para se obter a performance de dois canais simultaneamente com a sincronização do ADC1 e ACD2. 
+
+            ![alt text](docs/imgs/adc_conv_simultanea.png)
+
+        - As leituras do ADC1 e ADC2 fica armazenado no registrador ADC1 no formado de 32 bits.    
 
 ### 11. [DAC (Conversor Digital Analógico)](#11-dac-conversor-digital-analógico)
 
