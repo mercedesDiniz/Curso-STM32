@@ -169,7 +169,7 @@ Alguns conceitos:
 - **Conversão com DMA**
 
     Em `` Parameter Settings ``, habilite a opção: ``DMS Continuos Requests``. Em seguinda adicione e configure o DMA o associando a um periférico. 
-    
+
     ![alt text](docs/imgs/adc_dma_config.png)
     - **DMA - Visão Geral**
         
@@ -181,6 +181,22 @@ Alguns conceitos:
             1. Mover dados de um periférico para um endereço de memória;
             2. Mover dados de um endereço de memória para um periférico;
             3. Mover dados de memória para memória. 
+    - **Frequência de Amostragem**
+        - Em `` Clock Configuration`` observe a frequência do clock nos periféricos. Na NUCLEO-L476RG, a frequencia maxima é 80Hz, e o clock dos canais do ADC está conectado ao barramento do AHB2.  
+        ![alt text](docs/imgs/arvore_ckock_perifericos_l478rg.png)
+
+        - Ao configura o ADC, em ``Parameter Settings``>``ADC_Settings``> ``Clock Prescale`` pode-se dividir o valor do ckock configurado na arvore de clocks para se obter novas opção. O $f_{ADC}$ será o resultado da divisão do o ckock pelo prescale. 
+
+        - Seguindo nas configuração,  em ``Parameter Settings``>``Rank``> ``Sampling Time`` ($t_s$) temos indicado quantos ciclos o microcontrolador precisa para fazer a amostragem.
+
+        - Em ``NVIC Settings``, habilite a interrupção do ADC para que quando o microcontrolador termine a conversão, a interrupção seja disparada.
+
+        -  No datashet do microcontrolador, verifique a tabela de características do ADC. No [NUCLEO-L476RG](https://www.st.com/resource/en/datasheet/stm32l476je.pdf), o $t_{CONV}$ indica o tempo entre uma amostra e outra, sendo calculado da seguinte forma:
+        
+            ![alt text](docs/imgs/tconv_l478rg.png)
+
+            Logo, a frequência de amostragem é: $f_s = \frac{1}{t_{CONV}}$.
+
 
 ### 11. [DAC (Conversor Digital Analógico)](#11-dac-conversor-digital-analógico)
 
