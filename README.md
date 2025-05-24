@@ -203,7 +203,9 @@ Alguns conceitos:
 
             ![alt text](docs/imgs/adc_conv_simultanea.png)
 
-        - As leituras do ADC1 e ADC2 fica armazenado no registrador ADC1 no formado de 32 bits.    
+        - As leituras do ADC1 e ADC2 fica armazenado no registrador ADC1 no formado de 32 bits. 
+
+        - Habilite o ``IN1 Single-ended`` do ADC1 (Master) e o ``IN16 Single-ended`` do ADC2 (Slave). Nas configurações do master, em ``ADC_Common_Settings``>``Mode``, selecione a opção ``Dual regular simultaneous mode only``.  
 
 ### 11. [DAC (Conversor Digital Analógico)](#11-dac-conversor-digital-analógico)
 
