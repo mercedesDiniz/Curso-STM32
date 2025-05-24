@@ -206,6 +206,10 @@ Alguns conceitos:
         - As leituras do ADC1 e ADC2 fica armazenado no registrador ADC1 no formado de 32 bits. 
 
         - Habilite o ``IN1 Single-ended`` do ADC1 (Master) e o ``IN16 Single-ended`` do ADC2 (Slave). Nas configurações do master, em ``ADC_Common_Settings``>``Mode``, selecione a opção ``Dual regular simultaneous mode only``.  
+    - **Auto Caibração**:
+        - No *application note* [AN2834](https://www.st.com/resource/en/application_note/cd00211314-how-to-optimize-the-adc-accuracy-in-the-stm32-mcus-stmicroelectronics.pdf), temos a documentação de como otimizar a precisão do ADC nos MCUs STM32.
+
+        - A função de calibração é a ``HAL_ADCx_Calibration_Start()``, e há um pré-requisito para usa-lá: No momento da calibração o ADC precisa está desabilitado, logo a função so pode ser chamada antes do ``HAL_ADC_Start()`` ou depois do  ``HAL_ADC_Stop()``.
 
 ### 11. [DAC (Conversor Digital Analógico)](#11-dac-conversor-digital-analógico)
 
