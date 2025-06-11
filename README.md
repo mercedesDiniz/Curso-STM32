@@ -367,6 +367,94 @@ O [MODBUS](https://www.modbus.org/) é um protocolo de comunicação desenvolvid
 
 ### 25. [Comunicação CAN](#25-comunicação-can)
 
+A comunicação CAN (*Controller Area Network*) foi desenvolvica em 1980 por Robert Bosch na Alemanha originalmente para industria automotiva.
+
+
+- **Características:**
+    - Protocolo altamente utilizado na industria e também em sistemas automotivos;
+    - Comunicação serial multi-mestre desenvolvida para alta velocidade, imunidade a ruídos e características de detecção de erros;
+    - A velocidade de comunicação de até 1Mbits/s;
+    - Retransmissão automática de mensagens de erro;
+    - Endereçamento é por mensagem e não ao nó;
+    - [ISO 11898](https://www.iso.org/obp/ui/en/#iso:std:iso:11898:-1:ed-3:v1:en);
+
+Todos os dispositivos podem ouvir a mensagem, mas somente vão receber o que é definido.
+A rede CAN se baseia em um barramento de dois fios (**CAN High** e **CAN Low**) por onde as mensagens são transmitidas. As mensagens são transmitidas em **quadros de bits**, que são organizados em campos com diferentes funções, incluindo a prioridade da mensagem. 
+
+O CAN utiliza um sistema de **priorização baseado em IDs** (identificadores) de mensagem, onde mensagens com IDs mais altos têm maior prioridade e acesso ao barramento. Cada **unidade de controle** (ECU) na rede monitora o barramento para verificar se existem mensagens para ela, e as processa de acordo com a prioridade. 
+
+![alt text](docs/imgs/can_arq.png)
+
+- **Link de dados CAN e subcamadas físicas em relação ao modelo OSI**:
+
+    ![alt text](docs/imgs/can_camadas.png)
+
+- **Sinais do protocolo CAN**
+
+    A rede CAN utiliza **sinais diferenciais** com um par de fios (CAN_H e CAN_L), para transmitir dados, e a diferença de potencial entre estes dois fios é o que carrega a informação.
+
+    - **Sinal Diferencial**: utiliza dois sinais complementares para transportar informações. 
+        - Maior imunidade a ruídos, pois o ruído que afeta um sinal também afetará o outro, e a diferença entre eles permanecerá. 
+        - Podem ser mais sensíveis a problemas de impedância se os comprimentos das linhas não forem bem combinados.
+    
+    - **Single Ended (terminação única)**: utiliza um sinal em relação a um ponto de referência (ground).
+        - Mais simples e econômicos de implementar, pois requerem menos fios e componentes.
+        - São mais sensíveis a ruídos, pois o ruído pode afetar o sinal diretamente. 
+        - Podem exigir uma tensão de alimentação mais alta para transmitir o sinal.
+
+        ![alt text](docs/imgs/can_sinais.png)
+
+    - **Estados das Sinais**:
+
+        ![alt text](docs/imgs/can_sinais_logicos.png)
+
+    - **Resolução de Colisões**: 
+    
+        Quando ocorre uma colisão, os dispositivos envolvidos interrompem a transmissão e passam para um estado de “escuta”, enquanto um processo de arbitragem é iniciado. 
+        
+        Durante de arbitragem, os dispositivos competem pela prioridade de transmissão com base nos seus identificadores.
+        
+        - O dispositivo com o identificador mais alto tem a prioridade mais alta e pode transmitir seus dados primeiro.
+        - O dispositivo que detectou a colisão primeiro tem prioridade para tentar transmitir novamente.
+
+        Se dois dispositivos tiverem o mesmo identificador, uma estratégia de “*bit stuffing*” é utilizada para diferenciar as mensagens. O bit stuffing consiste na inserção de bits adicionais no campo de dados da mensagem para evitar que dois dispositivos transmitam a mesma sequência de bits.
+    
+    - **Formato das Mensagens**: 
+        - **Frame de dados**: 
+            - ***Standar*** (2.0A - 11 bits de identificação): só comunica com o mesmo tipo.
+            - ***Extended*** (2.0B - 29 bits de identificação), também é compatível com o *Standar*.
+
+            ![tipos_frames_dados](docs/imgs/cam_tipos_frames_dados.png)
+            
+            - **Visão geral**: 
+
+                ![Standar](docs/imgs/can_frame_de_dados.png)
+
+                - **Start of Frame (SOF)**: Indica o início da transmissão de um quadro com um bit **dominante (0)**.
+                
+                -  ***Stuff bit***: Separa uma sequencia de 5 zeros consecutivos.
+
+                - **Remote Transmission Request (RTR)**: Usado para diferenciar entre um quadro de dados e um quadro remoto (solicitação de dados).
+                    - **RTR dominante (0)** indica um **quadro de dados**
+                    - **RTR recessivo (1)** indica um **quadro remoto**
+
+                - **Código de Comprimento de Dados (DLC)**: Campo de **4 bits** que indica o número de bytes de dados (0 a 8 bytes) que estão presentes na carga útil da mensagem.  
+
+                - **Acknowledgement (ACK)**: Indica ao transmissor se a mensagem foi recebida corretamente por pelo menos um receptor. Possui **dois bits**, um para espaçamento e outro para o registro. 
+                    - Inicialmente recessivo (1) transmitido pelo transmissor.
+                    - Se um receptor receber a mensagem sem erros, ele sobrescreve este bit com um valor **dominante (0)** 
+
+                -  **End Of Frame (EOF)**: Consiste em **7 bits** que marcam o **fim de uma mensagem**. A presença destes **7 bits recessivos (1) consecutivos** informa que a mensagem está concluída.
+
+                - **Inter-Frame Space (IFS)**: Campo de **3 bits ou mais**, dependendo da versão do CAN. Em ambos os casos, ele é sempre composto por bits **recessivos (1)**, que indicam o **estado ocioso** do barramento. 
+
+
+        - Frame Remoto
+
+        - Frame de Erro
+        - Frame de Sobre Carga   
+    
+
 ### 26. [CMSIS-DSP](#26-cmsis-dsp)
 
 ### 27. [Memória Flash Interna do STM32](#27-memória-flash-interna-do-stm32)
