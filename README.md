@@ -41,8 +41,16 @@ Alguns conceitos:
 - **Gravador**: [STM32CubeProg](https://www.st.com/en/development-tools/stm32cubeprog.html)
 - **Servidor ST-LINK**: [ST-LINK server](https://www.st.com/en/development-tools/st-link-server.html)
 - **Núcleo Board**: 
-    - [NUCLEO-L476RG](https://www.st.com/en/evaluation-tools/nucleo-l476rg.html):[MB1136-C05 Board schematic](https://www.st.com/resource/en/schematic_pack/mb1136-default-c05_schematic.pdf) ; [Datasheet STM32L476xx](https://www.st.com/resource/en/datasheet/stm32l476je.pdf). 
-    - [NUCLEO-G474RE](https://www.st.com/en/evaluation-tools/nucleo-g474re.html#documentation): [MB1367-G474RE-C05 Board schematic](https://www.st.com/resource/en/schematic_pack/mb1367-g474re-c05_schematic.pdf) . 
+    - [NUCLEO-L476RG](https://www.st.com/en/evaluation-tools/nucleo-l476rg.html): 
+        - [MB1136-C05 Board schematic](https://www.st.com/resource/en/schematic_pack/mb1136-default-c05_schematic.pdf)
+        - [Datasheet - STM32L476RG](https://www.st.com/resource/en/datasheet/stm32l476je.pdf)
+        - [Reference manual (RM0351)](https://www.st.com/resource/en/reference_manual/rm0351-stm32l47xxx-stm32l48xxx-stm32l49xxx-and-stm32l4axxx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf)
+
+    - [NUCLEO-G474RE](https://www.st.com/en/evaluation-tools/nucleo-g474re.html#documentation): 
+        - [MB1367-G474RE-C05 Board schematic](https://www.st.com/resource/en/schematic_pack/mb1367-g474re-c05_schematic.pdf)
+        - [Datasheet - STM32G474RE](https://www.st.com/en/microcontrollers-microprocessors/stm32g474re.html)
+        - [Reference manual (RM0440)](https://www.st.com/resource/en/reference_manual/rm0440-stm32g4-series-advanced-armbased-32bit-mcus-stmicroelectronics.pdf)
+
 - **Upgrade St-Link**: ![U](docs/imgs/upgrade_stlink.png)
 
 ### 3. [Revisão de Linguagem C Básica](#3-revisão-de-linguagem-c-básica)
@@ -483,6 +491,47 @@ O CAN utiliza um sistema de **priorização baseado em IDs** (identificadores) d
             - `Time Quantum in Bit Segment 2` : Quantidade de Tq na segunda parte do bit, usada para compensar erros de fase. Corresponde ao valor PHASE_SEG2.
 
             - `Baud Rate`: Taxa de transmissão de bits por segundo (bps) no barramento CAN.  
+
+    - **Filtro CAN**:
+        - **Configuração**:
+            - `FilterBank`- Especifica o banco de filtros que será inicializado. A quantidade disponíveis pode ser cerificada no manual de referencia do microcontrolador. 
+            - `FilterMode` - Especifica o modo do filtro a ser inicializado.
+            - `FilterScale`- Especifica a escala do filtro (32 ou 16 bits).
+            - `FilterIdHigh` - Especifica o número de identificação do filtro (MSBs para uma configuração de 32 bits, o primeiro para uma configuração de 16 bits).
+            - `FilterIdLow`- Especifica o número de identificação do filtro (LSBs para uma configuração de 32 bits, o segundo para uma configuração de 16 bits).
+            - `FilterMaskIdHigh`- Especifica o número da máscara de filtro ou o número de identificação, de acordo com o modo (MSBs para uma configuração de 32 bits, o primeiro para uma configuração de 16 bits).
+            - `FilterMaskIdLow`- Especifica o número da máscara de filtro ou o número de identificação, de acordo com o modo (LSBs para uma configuração de 32 bits, o segundo para uma configuração de 16 bits).
+            - `FilterFIFOAssignment` - Especifica o FIFO (0 ou 1U) que será atribuído ao filtro.
+            - `FilterActivation` - Habilita ou Desabilita o filtro.
+            - `SlaveStartFilterBank`- Selecione o banco de filtros inicial para a instância CAN escrava. Para uma única instancia do CAN, esse parâmetro não tem significado.
+
+
+        - **Exemplo de implementação**:
+        ~~~c
+        CAN_FilterTypeDef  sFilterConfig;
+
+        // Configure the CAN Filter 
+        
+        sFilterConfig.FilterBank = 0;
+        sFilterConfig.FilterMode = CAN_FILTERMODE_IDMASK;
+        sFilterConfig.FilterScale = CAN_FILTERSCALE_32BIT;
+        sFilterConfig.FilterIdHigh = 0x0000;
+        sFilterConfig.FilterIdLow = 0x0000;
+        sFilterConfig.FilterMaskIdHigh = 0x0000;
+        sFilterConfig.FilterMaskIdLow = 0x0000;
+        sFilterConfig.FilterFIFOAssignment = CAN_RX_FIFO0;
+        sFilterConfig.FilterActivation = ENABLE;
+        sFilterConfig.SlaveStartFilterBank = 14;
+
+        if(HAL_CAN_ConfigFilter(&hcan1, &sFilterConfig) != HAL_OK)
+            {
+            /* Filter configuration Error */
+            Error_Handler();
+            }
+        ~~~
+
+    Manuais de referencia: [STM32L47 (RM0351)](https://www.st.com/resource/en/reference_manual/rm0351-stm32l47xxx-stm32l48xxx-stm32l49xxx-and-stm32l4axxx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf), 
+
 
 ### 26. [CMSIS-DSP](#26-cmsis-dsp)
 
