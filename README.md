@@ -419,8 +419,11 @@ O CAN utiliza um sistema de **priorização baseado em IDs** (identificadores) d
 
         Se dois dispositivos tiverem o mesmo identificador, uma estratégia de “*bit stuffing*” é utilizada para diferenciar as mensagens. O bit stuffing consiste na inserção de bits adicionais no campo de dados da mensagem para evitar que dois dispositivos transmitam a mesma sequência de bits.
     
-    - **Formato das Mensagens**: 
-        - **Frame de dados**: 
+    - **Tipos de Frame e Formato das Mensagens**: 
+        - **Frame Remoto**
+        - **Frame de Erro**
+        - **Frame de Sobre Carga**   
+        - **Frame de Dados**: 
             - ***Standar*** (2.0A - 11 bits de identificação): só comunica com o mesmo tipo.
             - ***Extended*** (2.0B - 29 bits de identificação), também é compatível com o *Standar*.
 
@@ -446,14 +449,40 @@ O CAN utiliza um sistema de **priorização baseado em IDs** (identificadores) d
 
                 -  **End Of Frame (EOF)**: Consiste em **7 bits** que marcam o **fim de uma mensagem**. A presença destes **7 bits recessivos (1) consecutivos** informa que a mensagem está concluída.
 
-                - **Inter-Frame Space (IFS)**: Campo de **3 bits ou mais**, dependendo da versão do CAN. Em ambos os casos, ele é sempre composto por bits **recessivos (1)**, que indicam o **estado ocioso** do barramento. 
+                - **Inter-Frame Space (IFS)**: Campo de **3 bits ou mais**, dependendo da versão do CAN. Em ambos os casos, ele é sempre composto por bits **recessivos (1)**, que indicam o **estado ocioso** do barramento.
 
-
-        - Frame Remoto
-
-        - Frame de Erro
-        - Frame de Sobre Carga   
+    - **Configurando Velocidade de Transmissão**:
+    Em `Parameter Settings` de `CAN1 Mode and Configuration`, temos as configurações de `Bit Timings Parameters`. 
     
+        ![alt text](docs/imgs/can_config_ioc.png)
+
+        - **Cálculo dos Tempos de Bit**: 
+            
+            Uma ferramenta útil para calcular os tempos de bit corretamente é o sit [CAN Bit Time Calculation](http://www.bittiming.can-wiki.info). Basta selecionar o dispositivo (`ST Microelectronics bxCAN`) e informar a frequência do clock do periférico (verificar em `Clock Configuration` do CubeMX).
+
+        - **Estrutura de um Bit CAN (conforme norma ISO-11898)**:
+
+            ![alt text](docs/imgs/can_bit.png)
+
+        - **Definições dos Parâmetros**: 
+
+            - `Prescaler (for Time Quantum)`: Define por quanto o clock do periférico CAN será dividido para obter o **Time Quantum (Tq)**.  
+
+            - `Time Quantum (Tq)` : Unidade básica de tempo no protocolo CAN. Determina a resolução da temporização dos bits.  
+                - Fórmula: $T_q = \frac{1}{f_{CAN}}$,
+            onde $( f_{CAN} = \frac{f_{clock}}{\text{Prescaler}} )$.
+
+                > **Nota**: No [STM32L476RG](https://www.st.com/en/microcontrollers-microprocessors/stm32l476rg.html), o canal CAN fica no barramento `APB1` e a frequência maxima suportada é 80 MHz.
+
+            - `Time Quantum in Bit Segment 1`: Quantidade de Tq usada na primeira parte do bit, que inclui:  
+                - PROP_SEG (tempo de propagação)  
+                - PHASE_SEG1 (ajuste de sincronização)  
+            
+                - **Fórmula:**  Bit Segment 1 = PROP_SEG + PHASE_SEG1
+
+            - `Time Quantum in Bit Segment 2` : Quantidade de Tq na segunda parte do bit, usada para compensar erros de fase. Corresponde ao valor PHASE_SEG2.
+
+            - `Baud Rate`: Taxa de transmissão de bits por segundo (bps) no barramento CAN.  
 
 ### 26. [CMSIS-DSP](#26-cmsis-dsp)
 
