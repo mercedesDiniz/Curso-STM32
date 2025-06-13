@@ -377,6 +377,7 @@ O [MODBUS](https://www.modbus.org/) é um protocolo de comunicação desenvolvid
 
 A comunicação CAN (*Controller Area Network*) foi desenvolvica em 1980 por Robert Bosch na Alemanha originalmente para industria automotiva.
 
+![alt text](docs/imgs/can_network.png)
 
 - **Características:**
     - Protocolo altamente utilizado na industria e também em sistemas automotivos;
@@ -396,6 +397,10 @@ O CAN utiliza um sistema de **priorização baseado em IDs** (identificadores) d
 - **Link de dados CAN e subcamadas físicas em relação ao modelo OSI**:
 
     ![alt text](docs/imgs/can_camadas.png)
+
+- **Quantidade de Nós vs Bit Rate**: O número de dispositivos que podem realmente ser conectados a um barramento é limitado pelo tempo de atraso e pelos sinais do barramento. Um número maior de dispositivos podem ser conectados reduzindo  a velocidade de comunicação. Por outros lado, se a velocidade for aumentada, o número de unidades conectáveis deve diminuir. 
+    
+    ![alt text](docs/imgs/can_bitrate_vs_length.png)
 
 - **Sinais do protocolo CAN**
 
@@ -507,7 +512,7 @@ O CAN utiliza um sistema de **priorização baseado em IDs** (identificadores) d
             - `FilterActivation` - Habilita ou Desabilita o filtro.
             - `SlaveStartFilterBank`- Selecione o banco de filtros inicial para a instância CAN escrava. Para uma única instancia do CAN, esse parâmetro não tem significado
             
-            > Nota: Use essa [planilha](docs/Filtros_Config_Can.ods) para calcular os valores que precisam ser configurados em `FilterIdHigh`, `FilterIdLow`, `FilterMaskIdHigh` e `FilterMaskIdLow`. .
+            > Nota: Use essa [planilha](docs/Filtros_Config_Can.ods) para calcular os valores que precisam ser configurados em `FilterIdHigh`, `FilterIdLow`, `FilterMaskIdHigh` e `FilterMaskIdLow`.
 
         - **Exemplo de implementação do filtro (Mask Mode)**:
             ~~~c
@@ -551,7 +556,16 @@ O CAN utiliza um sistema de **priorização baseado em IDs** (identificadores) d
                 
                 - **Configuração**: Em `FilterMode`, configure `CAN_FILTERMODE_IDLIST`. 
 
-              
+    - **CAN Normal**:
+        - Opção de ***Transceiver***: 
+            - [MCP2551](https://ww1.microchip.com/downloads/aemDocuments/documents/APID/ProductDocuments/DataSheets/20001667G.pdf)
+            - [SN65HVD230](https://www.ti.com/lit/ds/symlink/sn65hvd230.pdf?ts=1749793271479&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FSN65HVD230)   
+
+            ![alt text](docs/imgs/can_conect_transceiver_SN65HVD230.png)
+
+        - Configuração sem ***Transceiver***:
+            
+            ![alt text](docs/imgs/can_conect_sem_transceiver.png)
 
      
 
