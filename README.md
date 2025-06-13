@@ -493,6 +493,8 @@ O CAN utiliza um sistema de **priorização baseado em IDs** (identificadores) d
             - `Baud Rate`: Taxa de transmissão de bits por segundo (bps) no barramento CAN.  
 
     - **Filtro CAN**:
+        Apesar de todos os dispositivos conectados ao barramento CAN estarem recebendo todas as mensagens transmitidas, nem todos precisam processá-las. Os filtros são mecanismos essenciais para selecionar e encaminhar apenas as mensagens relevantes para cada nó da rede, com base em critérios previamente definidos. No protocolo CAN, os filtros funcionam com base no identificador das mensagens, podendo ser configurados para aceitar ou bloquear mensagens com identificadores específicos.
+
         - **Configuração**:
             - `FilterBank`- Especifica o banco de filtros que será inicializado. A quantidade disponíveis pode ser cerificada no manual de referencia do microcontrolador. 
             - `FilterMode` - Especifica o modo do filtro a ser inicializado.
@@ -503,34 +505,55 @@ O CAN utiliza um sistema de **priorização baseado em IDs** (identificadores) d
             - `FilterMaskIdLow`- Especifica o número da máscara de filtro ou o número de identificação, de acordo com o modo (LSBs para uma configuração de 32 bits, o segundo para uma configuração de 16 bits).
             - `FilterFIFOAssignment` - Especifica o FIFO (0 ou 1U) que será atribuído ao filtro.
             - `FilterActivation` - Habilita ou Desabilita o filtro.
-            - `SlaveStartFilterBank`- Selecione o banco de filtros inicial para a instância CAN escrava. Para uma única instancia do CAN, esse parâmetro não tem significado.
+            - `SlaveStartFilterBank`- Selecione o banco de filtros inicial para a instância CAN escrava. Para uma única instancia do CAN, esse parâmetro não tem significado
+            
+            > Nota: Use essa [planilha](docs/Filtros_Config_Can.ods) para calcular os valores que precisam ser configurados em `FilterIdHigh`, `FilterIdLow`, `FilterMaskIdHigh` e `FilterMaskIdLow`. .
 
+        - **Exemplo de implementação do filtro (Mask Mode)**:
+            ~~~c
+            CAN_FilterTypeDef  sFilterConfig;
 
-        - **Exemplo de implementação**:
-        ~~~c
-        CAN_FilterTypeDef  sFilterConfig;
+            // Configure the CAN Filter 
+            
+            sFilterConfig.FilterBank = 0;
+            sFilterConfig.FilterMode = CAN_FILTERMODE_IDMASK;
+            sFilterConfig.FilterScale = CAN_FILTERSCALE_32BIT;
+            sFilterConfig.FilterIdHigh = 0x0000;
+            sFilterConfig.FilterIdLow = 0x0000;
+            sFilterConfig.FilterMaskIdHigh = 0x0000;
+            sFilterConfig.FilterMaskIdLow = 0x0000;
+            sFilterConfig.FilterFIFOAssignment = CAN_RX_FIFO0;
+            sFilterConfig.FilterActivation = ENABLE;
+            sFilterConfig.SlaveStartFilterBank = 14;
 
-        // Configure the CAN Filter 
-        
-        sFilterConfig.FilterBank = 0;
-        sFilterConfig.FilterMode = CAN_FILTERMODE_IDMASK;
-        sFilterConfig.FilterScale = CAN_FILTERSCALE_32BIT;
-        sFilterConfig.FilterIdHigh = 0x0000;
-        sFilterConfig.FilterIdLow = 0x0000;
-        sFilterConfig.FilterMaskIdHigh = 0x0000;
-        sFilterConfig.FilterMaskIdLow = 0x0000;
-        sFilterConfig.FilterFIFOAssignment = CAN_RX_FIFO0;
-        sFilterConfig.FilterActivation = ENABLE;
-        sFilterConfig.SlaveStartFilterBank = 14;
+            if(HAL_CAN_ConfigFilter(&hcan1, &sFilterConfig) != HAL_OK)
+                {
+                /* Filter configuration Error */
+                Error_Handler();
+                }
+            ~~~
 
-        if(HAL_CAN_ConfigFilter(&hcan1, &sFilterConfig) != HAL_OK)
-            {
-            /* Filter configuration Error */
-            Error_Handler();
-            }
-        ~~~
+        - **Modos**: O filtro de mensagens pode ser configurado de diferentes formas para determinar quais mensagens são aceitas pelo controlador CAN. Entre esses modos, dois são o **Mask Mode** e o **ID Mode/List**.
 
-    Manuais de referencia: [STM32L47 (RM0351)](https://www.st.com/resource/en/reference_manual/rm0351-stm32l47xxx-stm32l48xxx-stm32l49xxx-and-stm32l4axxx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf), 
+            - **Mask Mode**:
+                - Nesse modo, o filtro permite a comparação das mensagens de entrada com uma "máscara" que define quais bits do identificador (ID) da mensagem serão ignorados na comparação.
+
+                - A máscara pode ser configurada para que apenas uma parte do ID seja relevante, permitindo uma maior flexibilidade na filtragem de mensagens. Isso é útil quando se deseja aceitar mensagens com padrões específicos, mas com variações em certas partes do ID.
+
+                - **Configuração**: Em `FilterMode`, configure `CAN_FILTERMODE_IDMASK`.
+
+            - **ID Mode/List**:
+                - Nesse modo, o filtro aceita ou rejeita mensagens com base em uma lista de identificadores específicos (IDs).
+
+                - O controlador CAN compara o ID da mensagem recebida com os IDs predefinidos na lista. Se o ID da mensagem coincidir com um dos IDs da lista, a mensagem será aceita; caso contrário, será ignorada.
+
+                - Esse modo é útil quando se deseja filtrar um conjunto específico de mensagens identificadas por IDs conhecidos.
+                
+                - **Configuração**: Em `FilterMode`, configure `CAN_FILTERMODE_IDLIST`. 
+
+              
+
+     
 
 
 ### 26. [CMSIS-DSP](#26-cmsis-dsp)
